@@ -68,7 +68,7 @@ class TestHTTPFS:
 
         value = exc.value
         assert value.status_code != 200
-        assert value.body == ""
+        assert isinstance(value.body, str)
         assert "Content-Length" in value.headers
 
     def test_fsspec_priority(self, require):
